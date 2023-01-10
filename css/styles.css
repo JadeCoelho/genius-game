@@ -1,0 +1,267 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+:root {
+	--dark-green:   #00A74A;
+	--dark-red:     #9F0F17;
+	--dark-yellow:  #CCA707;
+	--dark-blue:    #094A8F;
+	
+	--light-green:    #13ff7c;
+	--light-red:      #ff4c4c;
+	--light-yellow:   #fed93f;
+	--light-blue:     #1c8cff;
+	
+	--border:		  #333333;
+	--center:  		  #ECE7EE;
+
+	--counter-bg:	  #32050C;
+	--counter-off:	  #520612;
+	--counter-on:	  #DC0D29;
+	
+	--switch: 	      #3193DE;
+
+	--game-size: 48rem;
+	--game-border: 1.8rem solid var(--border);
+}
+
+html{
+	font-size: 62.5%; /*isso equivale a 10px, e aqui trabalharei com rem, tornando 10px o padrão de 1rem*/
+}
+	
+body {
+	font-family: "Bungee", verdana, sans-serif;
+	background-color: #ddd;
+}
+
+img{
+	width: 80px;
+	border-radius: 50%;
+	position: relative;
+}
+
+.jovelina{
+	left: 5.5rem;
+	top: 7rem;
+}
+.caramelo{
+	left: 5.5rem;
+	top: 5.5rem;
+}
+.perola{
+	left: 7rem;
+	top: 7rem;
+}
+.chico{
+	left: 7rem;
+	top: 5.5rem;
+}
+.container{
+	width: var(--game-size);
+	margin: 0 auto;
+}
+
+.game{
+	width: var(--game-size);
+	height: var(--game-size);
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 5rem;
+	position: relative;
+}
+
+.game-pad{
+	width: calc(var(--game-size) / 2);
+	height: calc(var(--game-size) / 2);
+	border: var(--game-border);
+}
+
+.game-pad-tl{
+	background-color: var(--dark-green);
+	border-top-left-radius: 100%;
+}
+.game-pad-tr{
+	background-color: var(--dark-red);
+	border-top-right-radius: 100%;
+}
+.game-pad-bl{
+	background-color: var(--dark-yellow);
+	border-bottom-left-radius: 100%;
+}
+.game-pad-br{
+	background-color: var(--dark-blue);
+	border-bottom-right-radius: 100%;
+}
+
+.game-pad-tl.active{
+	background-color: var(--light-green);
+}
+.game-pad-tr.active{
+	background-color: var(--light-red);
+}
+.game-pad-bl.active{
+	background-color: var(--light-yellow);
+}
+.game-pad-br.active{
+	background-color: var(--light-blue);
+}
+
+.game-pad-btn{
+	cursor: pointer;
+}
+
+.game-options{
+	position: absolute;
+	background-color: var(--center);
+	width: calc(var(--game-size) / 2);
+	height: calc(var(--game-size) / 2);
+	left: 25%;
+	top: 25%;
+	border: var(--game-border);
+	border-radius: 50%;
+}
+
+.game-title{
+	font-size: 2.2rem;
+	text-transform: uppercase;
+	padding-top: 3rem;
+	text-align: center;
+}
+
+.reg{
+	font-family: Verdana, sans-serif;
+	font-size: 1rem;
+	margin-left: -.5rem;
+	vertical-align: top;
+}
+
+.gui{
+	padding-left: 1.5rem;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+}
+
+.group{
+	margin-right: 2.2rem;
+}
+
+.group-lg{
+	display: flex;
+	width: 10rem;
+	margin-left: 4.5rem;
+}
+
+.label{
+	font-family: "Arima Madurai", cursive;
+	font-weight: bold;
+	font-size: 0.75rem;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.label-switch{
+	margin: 0;
+	padding-top: 0.75rem;
+}
+
+.gui-btn{
+	width: 2.5rem;
+	height: 2.5rem;
+	margin-left: .2rem;
+	border-radius: 5rem;
+	box-shadow: 0 .2rem .3rem #222;
+	border: .4rem solid #444;
+	cursor: pointer;
+}
+
+.gui-btn:active{
+	transform: translate(0, .3rem);
+	box-shadow: none;
+}
+
+.gui-btn.start{
+	background-color: red;
+}
+
+.gui-btn.strict{
+	background-color: yellow;
+}
+
+.btn-switch{
+	background-color: #222;
+	margin: 0 .5rem;
+	width: 5rem;
+	height: 2.3rem;
+	border-radius: .3rem;
+	cursor: pointer;
+}
+
+.btn-switch::before{
+	content: '';
+	background-color: var(--light-blue);
+	display: block;
+	position: relative;
+	left: 2.7rem;
+	width: 2.2rem;
+	height: 1.9rem;
+	border-radius: .3rem;
+	border: .2rem solid #333;
+	top: .15rem;
+}
+
+.btn-switch.on::before{
+	left: 0;
+}
+
+.counter{
+	background-color: var(--counter-bg);
+	color: var(--counter-off);
+	font-family: "Iceland", cursive;
+	font-weight: bold;
+	font-size: 3rem;
+	text-align: right;
+	width: 5.5rem;
+	border: .3rem solid #000;
+	border-radius: 1rem;
+	padding-right: .2rem;
+	padding-left: .3rem;
+}
+
+.counter.on{
+	color: var(--counter-on);
+}
+
+.gui-led{
+	background-color: #32050C;
+	margin-left: 1rem;
+	margin-bottom: .5rem;
+	width: .8rem;
+	height: .8rem;
+	border: .2rem solid #222;
+	border-radius: 50%;
+}
+
+.gui-led.on{
+	background-color: red;
+}
+footer{
+	text-align: center;
+	margin-top: 5rem;
+	font-size: 1rem;
+	color: var(--border);
+}
+
+footer a {
+	color: var(--counter-off);
+}
+
+@media (max-width: 600px) {
+	html {
+		font-size: 45%;
+	}
+}
